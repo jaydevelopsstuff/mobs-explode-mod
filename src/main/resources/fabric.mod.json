@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "Mobs Explode",
-  "description": "",
+  "description": "Makes all mobs in the game explode like creepers.",
   "authors": [
     "J"
   ],
