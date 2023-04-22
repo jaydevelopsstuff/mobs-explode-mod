@@ -32,6 +32,7 @@ public abstract class MobEntityMixin extends LivingEntity implements Targeter {
 
 	@Inject(method = "<init>", at = @At("TAIL"))
 	protected void constructor(EntityType entityType, World world, CallbackInfo ci) {
+		if(((MobEntity)(Object)this) instanceof CreeperEntity) return;
 		if(((MobEntity)(Object)this) instanceof PathAwareEntity) ((MobEntityAccessor)this).getGoalSelector().add(4, new MeleeAttackGoal(((PathAwareEntity)(Object)this), 1.0, false));
 		((MobEntityAccessor)this).getGoalSelector().add(0, new MobIgniteGoal((MobEntity)(Object)this));
 		((MobEntityAccessor)this).getTargetSelector().add(1, new ActiveTargetGoal(((MobEntity)(Object)this), PlayerEntity.class, true));
